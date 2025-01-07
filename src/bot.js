@@ -1,13 +1,13 @@
-import puppeteer from "puppeteer";
 import dotenv from "dotenv";
 import { LIMIT } from "./constant.js";
+import { getBrowser } from "./browser.js";
 dotenv.config();
 
 export const bot = async (instagramId) => {
   const email = process.env.EMAIL;
   const pass = process.env.PASSWORD;
 
-  const browser = await puppeteer.launch();
+  const browser = await getBrowser();
   const page = await browser.newPage();
   await page.goto("https://instagram.com");
 
